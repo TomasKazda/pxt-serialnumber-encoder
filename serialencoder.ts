@@ -15,10 +15,7 @@ namespace Utility {
         const ofset = 48;
         let serialNo = serialNumber === undefined ? control.deviceSerialNumber() : serialNumber;
         if (serialNumber < 0) {
-            serialNumber -= 1;
-            console.log(serialNumber)
-            serialNumber = (Math.pow(2, 32)-1)^serialNumber;
-            console.log(serialNumber)
+            serialNumber = (Math.pow(2, 31)-1) + Math.abs(serialNumber);
         }
         let output = "";
         for (let i = 0; serialNo > 0; i++) {
@@ -26,6 +23,6 @@ namespace Utility {
             serialNo -= fraction;
             output = String.fromCharCode(fraction / Math.pow(64, i) + ofset) + output;
         }
-        return String.fromCharCode(ofset) + output
+        return output.length < 6 ? String.fromCharCode(ofset) + output : output;
     }
 }

@@ -10,7 +10,6 @@
     "files": [
         "README.md",
         "main.blocks",
-        "main.ts",
         "serialencoder.ts"
     ],
     "testFiles": [
@@ -24,5 +23,6 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "languageRestriction": "javascript-only"
 }
